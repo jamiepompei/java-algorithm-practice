@@ -9,7 +9,7 @@ public class Array {
         int secondLargestNum = 0;
 
         //if the array is empty, return -1
-        if(array.lenght == 0){
+        if(array.length == 0){
             return - 1;
         }
 

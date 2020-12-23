@@ -2,6 +2,7 @@ package LeetCode;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -65,26 +66,26 @@ public class LeetCode {
      */
 
     //Solution #1 with a stream
-    public boolean containsDuplicate(int[] nums){
+    public boolean containsDuplicateStream(int[] nums){
 
         if(nums.length <= 1){
             return false;
         }
 
-        List<integer> numList = Arrays.stream(nums)
+        List<Integer> numList = Arrays.stream(nums)
                         .distinct()
                             .boxed()
-                                .collection(Collectors.toList());
+                                .collect(Collectors.toList());
 
         return numList.size() != nums.length;
     }
 
     //Solution #2 Sorting
-    public boolean containsDuplicate(int[] nums){
+    public boolean containsDuplicateSort(int[] nums){
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length - 1; i++) {
-            if(array[i] == array[i+1]){
+            if(nums[i] == nums[i+1]){
                 return true;
             }
         }
@@ -92,9 +93,9 @@ public class LeetCode {
     }
 
     //Solution #3 HashSet
-    public boolean containsDuplicates(int[] nums){
+    public boolean containsDuplicatesSet(int[] nums){
         Set<Integer> set = new HashSet<>();
-        for(int elements: nums){
+        for(int element: nums){
             if(set.contains(element)) return true;
             set.add(element);
         }

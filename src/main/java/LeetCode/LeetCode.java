@@ -1,6 +1,8 @@
 package LeetCode;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class LeetCode {
@@ -85,6 +87,16 @@ public class LeetCode {
             if(array[i] == array[i+1]){
                 return true;
             }
+        }
+        return false;
+    }
+
+    //Solution #3 HashSet
+    public boolean containsDuplicates(int[] nums){
+        Set<Integer> set = new HashSet<>();
+        for(int elements: nums){
+            if(set.contains(element)) return true;
+            set.add(element);
         }
         return false;
     }

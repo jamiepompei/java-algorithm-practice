@@ -98,4 +98,22 @@ public class Array {
         return product;
     }
 
+
+    /**
+     * @param intArray an array of integers
+     * @return the sum of `intArray` divided by number of elements in `intArray`
+     */
+    public Double sumAndDivide(Integer[] intArray){
+        Integer sum = 0;
+        Integer numOfElems = intArray.length;
+
+
+        for (Integer element: intArray) {
+            sum += element;
+        }
+
+        Double average = (double) sum / numOfElems;
+
+        return average;
+    }
 }

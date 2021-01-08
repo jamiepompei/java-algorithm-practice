@@ -14,4 +14,21 @@ public class StringUtils {
 
         return str;
     }
+
+    /**
+     * @param str string input from client
+     * @return string with identical contents, in the reverse order
+     */
+    public String reverse(String str){
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(str).reverse();
+
+        String reversedStr = sb.toString();
+
+        return reversedStr;
+    }
+
+
+
 }

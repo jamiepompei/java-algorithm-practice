@@ -26,4 +26,19 @@ public class Array {
         }
         return secondLargestNum;
     }
+
+    /**
+     * ////////////////////////////////////////////////////  STRING ARRAY UTILS /////////////////////////////////////////
+     */
+    /**
+     *
+     *@param array an array of String objects
+     * @return the first element in the array
+     */
+    public String getFirstElement(String[] array){
+        String firstElement = array[0];
+        return firstElement;
+    }
+
+
 }

@@ -58,4 +58,13 @@ public class Array {
         return lastElement;
     }
 
+    /**
+     * @param stringArray an array of String objects
+     * @return the second to last element in the array
+     */
+    public String getSecondToLastElement(String[] stringArray){
+        String secondToLastElement = stringArray[stringArray.length - 2];
+        return secondToLastElement;
+    }
+
 }

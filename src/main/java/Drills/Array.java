@@ -85,4 +85,17 @@ public class Array {
         return sum;
     }
 
+    /**
+     * @param intArray an array of integers
+     * @return the product of `intArray`
+     */
+    public Integer product(Integer[] intArray){
+        Integer product = 1;
+
+        for (Integer element: intArray) {
+            product *= element;
+        }
+        return product;
+    }
+
 }

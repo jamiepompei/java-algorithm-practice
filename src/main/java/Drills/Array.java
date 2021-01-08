@@ -40,5 +40,13 @@ public class Array {
         return firstElement;
     }
 
+    /**
+     * @param stringArray an array of String objects
+     * @return the second element in the array
+     */
+    public String getSecondElement(String[] stringArray){
+        String secondToLastElement = stringArray[1];
+        return secondToLastElement;
+    }
 
 }

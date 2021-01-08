@@ -67,4 +67,22 @@ public class Array {
         return secondToLastElement;
     }
 
+    /**
+     * ////////////////////////////////////////////////////     INTEGER ARRAY UTILS /////////////////////////////////////////
+     *
+     */
+
+    /**
+     * * @param intArray an array of integers
+     *      * @return the sum of `intArray`
+     */
+    public Integer getSum(Integer[] intArray){
+        Integer sum = 0;
+
+        for (Integer element:intArray) {
+            sum += element;
+        }
+        return sum;
+    }
+
 }

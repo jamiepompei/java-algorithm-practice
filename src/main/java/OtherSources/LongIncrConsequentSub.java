@@ -46,5 +46,7 @@ public class LongIncrConsequentSub {
             }
             return Collections.max(map.values());
         }
+        return Collections.max(map.values());
+
     }
 }

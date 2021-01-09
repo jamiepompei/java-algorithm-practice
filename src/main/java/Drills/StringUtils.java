@@ -1,5 +1,6 @@
 package Drills;
 
+import java.util.Arrays;
 import java.util.Locale;
 
 public class StringUtils {
@@ -47,6 +48,20 @@ public class StringUtils {
         char temp = array[left];
         array[left] = array[right];
         array[right] = temp;
+    }
+
+    public String reverseAltSolutin(String string){
+        String[] splitString = string.split("");
+        String[] reversed = new String[string.length()];
+        int j = 0;
+
+        for(int i = splitString.length - 1; i >= 0; i--){
+            reversed[j] = splitString[i];
+            j++;
+        }
+
+        String reversedStr = Arrays.toString(reversed);
+        return reversedStr;
     }
 
 }

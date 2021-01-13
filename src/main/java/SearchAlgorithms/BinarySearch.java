@@ -9,7 +9,48 @@ public class BinarySearch {
      *
      * Recursive Binary Search (if target is not found, return -1, but ask interviewer what
      * they would like to be returned)
+     *
      */
+
+
+    public int binarySearchPracticeRecursion(int[] arr, int value){
+        int left = 0;
+        int right = arr.length -1;
+        if(arr.length == 0){
+            return -1;
+        }
+
+        binarySearchRecurHelper(arr, value, left, right);
+
+
+    }
+
+    public int binarySearchRecurHelper(int[] arr, int target, int left, int right){
+        //if the left pointer has passed the right pointer than the value is no longer in the array
+        if(left > right){
+            return -1;
+        }
+
+        int length = arr.length;
+        int middle = Math.round(length/2);
+        int potentialMatch = arr[middle];
+
+        if(potentialMatch == target){
+            return middle;
+        } else if( potentialMatch > target){
+            return binarySearchHelperRecursive(arr, target, left, middle - 1);
+        } else{
+            return binarySearchHelperRecursive(arr, target, middle + 1, right);
+        }
+    }
+
+
+
+
+
+
+
+
 
     public int binarySearchRecursive(int[] array, int target){
         return binarySearchHelperRecursive(array,target, 0, array.length - 1);

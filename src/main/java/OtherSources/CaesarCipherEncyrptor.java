@@ -27,4 +27,20 @@ public class CaesarCipherEncyrptor {
         }
         return new String(textToChars);
     }
+
+    public String caesarCypherEncryptor2(String str, int key){
+        char [] newLetters = new char[str.length()];
+        //takes care of the edge case for a really large key
+        int newKey = key % 26;
+
+        for(int i = 0; i <str.length(); i++){
+            newLetters[i] = getNewLetter(str.charAt(i), newKey);
+        }
+        return new String(newLetters);
+    }
+
+    public char getNewLetter(char letter, int key){
+        int newLetterCode = letter + key;
+        return newLetterCode <= 122 ? (char) newLetterCode : (char) (96 + newLetterCode % 122);
+    }
 }

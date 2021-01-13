@@ -19,10 +19,7 @@ public class BinarySearch {
         if(arr.length == 0){
             return -1;
         }
-
-        binarySearchRecurHelper(arr, value, left, right);
-
-
+        return binarySearchRecurHelper(arr, value, left, right);
     }
 
     public int binarySearchRecurHelper(int[] arr, int target, int left, int right){

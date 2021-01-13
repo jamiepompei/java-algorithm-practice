@@ -40,6 +40,20 @@ public class PalindromeCheckerString {
         return true;
     }
 
+    //create an empty string
+    //create a for loop that starts at the end of the passed in string, set up loop to iterate backwards
+    //fill empty string in loop with values of the passed in string
+    //use String.equals() method to compare the strings
+
+    public boolean isPalindromeChekerAlt(String str){
+        String revStr = "";
+
+        for(int i = str.length() -1; i >= 0; i--){
+            revStr += str;
+        }
+        return str.equals(revStr);
+    }
+
 
 
 }

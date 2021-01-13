@@ -44,7 +44,31 @@ public class BinarySearch {
         }
     }
 
+        //Iterative Binary Search
 
+        public int binarySearchIterPractice(int[] arr, int value){
+            if(arr.length == 0){
+                return -1;
+            }
+
+            int left = 0;
+            int right = arr.length -1;
+
+            while(left <= right){
+                int length = arr.length;
+                int middle = Math.round(length / 2);
+                int potentialMatch = arr[middle];
+
+                if(potentialMatch == value){
+                    return middle;
+                } else if(potentialMatch > value){
+                    left = middle - 1;
+                }else{
+                    right = middle + 1;
+                }
+            }
+            return -1;
+        }
 
 
 

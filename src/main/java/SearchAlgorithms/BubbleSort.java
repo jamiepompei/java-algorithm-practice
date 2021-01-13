@@ -10,6 +10,37 @@ public class BubbleSort {
      * abstract the 'swap' action into a helper method for cleaner code.
      */
 
+
+    public int[] bubbleSortPractice(int[] arr){
+        if(arr.length == 0){
+            return new int[0];
+        }
+
+        int counter = 0;
+        boolean isSorted = false;
+
+        while(!isSorted){
+            isSorted = true;
+
+            for(int i = 0; i < arr.length - 1 - counter; i++){
+               if(arr[i] > arr[i + 1]){
+                   swap(arr, i, i+1);
+                   isSorted = false;
+               }
+               counter++;
+            }
+        }
+        return arr;
+    }
+
+    public void swapPractice(int[] arr, int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+     }
+
+
+
     public int[] bubbleSort(int[] array){
         //if the array's length is 0, return a new empty array
         if(array.length == 0){

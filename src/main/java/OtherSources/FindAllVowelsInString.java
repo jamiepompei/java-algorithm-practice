@@ -33,9 +33,11 @@ public class FindAllVowelsInString {
     // With Streams
     public int countVowelsStream(String str){
 
-       return int numOfVowels = (int) str.toLowerCase().chars().mapToObj(i -> (char) i)
+        int numOfVowels = (int) str.toLowerCase().chars().mapToObj(i -> (char) i)
                             .filter(c -> "aeiou".contains(String.valueOf(c)))
                                 .count();
+
+        return numOfVowels;
     }
 
 

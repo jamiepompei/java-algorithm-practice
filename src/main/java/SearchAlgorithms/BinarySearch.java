@@ -37,29 +37,29 @@ public class BinarySearch {
 
     }
 
-    public int binarySearchIterPrac(int[] array, int target){
+    public int binarySearchIterPrac(int[] array, int target) {
         int left = 0;
         int right = array.length - 1;
 
-        while(left <= right){
+        while (left <= right) {
 
             int length = array.length - 1;
-            int middle = Math.round(length/2);
+            int middle = Math.round(length / 2);
             int potentialMatch = array[middle];
 
-            if(potentialMatch == target){
+            if (potentialMatch == target) {
                 return middle;
-            } else if(potentialMatch > target){
+            } else if (potentialMatch > target) {
                 right = middle - 1;
-            } else{
+            } else {
                 left = middle + 1;
             }
 
         }
-
-
-
+        return -1;
     }
+
+
 
 
 

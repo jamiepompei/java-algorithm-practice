@@ -8,7 +8,17 @@ import java.util.*;
 /**
  * Given a string, count the number of vowels
  */
+
+
+
 public class FindAllVowelsInString {
+
+    public static void main(String[] args) {
+
+    }
+
+
+
 
     public int countVowels(String str){
         int counter = 0;
@@ -39,6 +49,7 @@ public class FindAllVowelsInString {
 
         return numOfVowels;
     }
+
 
 
 }

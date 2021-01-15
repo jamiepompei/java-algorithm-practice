@@ -13,33 +13,61 @@ public class BinarySearch {
      */
 
 
-    public int binarySearchPracticeRecursion(int[] arr, int value){
-        int left = 0;
-        int right = arr.length -1;
-        if(arr.length == 0){
-            return -1;
-        }
-        return binarySearchRecurHelper(arr, value, left, right);
+    public int binarySearchRecurPrac(int[] array, int target){
+
+        return binarySearchHelperRecursivePrac(array, target, 0, array.length-1);
     }
 
-    public int binarySearchRecurHelper(int[] arr, int target, int left, int right){
-        //if the left pointer has passed the right pointer than the value is no longer in the array
+    public int binarySearchHelperRecursivePrac(int[] array, int target, int left, int right){
         if(left > right){
             return -1;
         }
 
-        int length = arr.length;
+        int length = array.length - 1;
         int middle = Math.round(length/2);
-        int potentialMatch = arr[middle];
+        int potentialMatch = array[middle];
 
         if(potentialMatch == target){
             return middle;
-        } else if( potentialMatch > target){
-            return binarySearchHelperRecursive(arr, target, left, middle - 1);
+        }else if(potentialMatch > target){
+            return binarySearchHelperRecursive(array, target, left, middle - 1);
         } else{
-            return binarySearchHelperRecursive(arr, target, middle + 1, right);
+            return binarySearchHelperRecursive(array, target, middle + 1, right);
         }
+
     }
+
+    public int binarySearchIterPrac(int[] array, int target){
+        int left = 0;
+        int right = array.length - 1;
+
+        while(left <= right){
+
+            int length = array.length - 1;
+            int middle = Math.round(length/2);
+            int potentialMatch = array[middle];
+
+            if(potentialMatch == target){
+                return middle;
+            } else if(potentialMatch > target){
+                right = middle - 1;
+            } else{
+                left = middle + 1;
+            }
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
 
         //Iterative Binary Search
 

@@ -15,21 +15,22 @@ public class BinarySearch {
 
     public int binarySearchRecurPrac(int[] array, int target){
 
-        return binarySearchHelperRecursivePrac(array, target, 0, array.length-1);
+        return binarySearchRecurHelper(array, target, 0, array.length -1);
     }
 
-    public int binarySearchHelperRecursivePrac(int[] array, int target, int left, int right){
+    public int binarySearchRecurHelper(int[] array, int target, int left, int right){
+
         if(left > right){
             return -1;
         }
 
-        int length = array.length - 1;
+        int length = array.length -1;
         int middle = Math.round(length/2);
         int potentialMatch = array[middle];
 
         if(potentialMatch == target){
             return middle;
-        }else if(potentialMatch > target){
+        } else if(potentialMatch > target){
             return binarySearchHelperRecursive(array, target, left, middle - 1);
         } else{
             return binarySearchHelperRecursive(array, target, middle + 1, right);
@@ -37,66 +38,27 @@ public class BinarySearch {
 
     }
 
-    public int binarySearchIterPrac(int[] array, int target) {
+    public int binarySearchIterativePrac(int[] array, int target){
         int left = 0;
         int right = array.length - 1;
 
-        while (left <= right) {
+        while(left <= right){
 
             int length = array.length - 1;
-            int middle = Math.round(length / 2);
+            int middle = Math.round(length/2);
             int potentialMatch = array[middle];
 
-            if (potentialMatch == target) {
+            if(potentialMatch == target){
                 return middle;
-            } else if (potentialMatch > target) {
+            }else if(potentialMatch > target){
                 right = middle - 1;
-            } else {
+            }else{
                 left = middle + 1;
             }
-
         }
         return -1;
+
     }
-
-
-
-
-
-
-
-
-
-
-
-        //Iterative Binary Search
-
-        public int binarySearchIterPractice(int[] arr, int value){
-            if(arr.length == 0){
-                return -1;
-            }
-
-            int left = 0;
-            int right = arr.length -1;
-
-            while(left <= right){
-                int length = arr.length;
-                int middle = Math.round(length / 2);
-                int potentialMatch = arr[middle];
-
-                if(potentialMatch == value){
-                    return middle;
-                } else if(potentialMatch > value){
-                    left = middle - 1;
-                }else{
-                    right = middle + 1;
-                }
-            }
-            return -1;
-        }
-
-
-
 
 
 

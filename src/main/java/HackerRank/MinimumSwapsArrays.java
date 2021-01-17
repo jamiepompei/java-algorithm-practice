@@ -30,15 +30,19 @@ public class MinimumSwapsArrays {
         Arrays.sort(temp);
 
         for (int i = 0; i < length; i++) {
+            //checks to see if the element is at the right place or not
             if(array[i] != temp[i]){
                 numOfSwaps++;
 
+                //swap the current element with the right index
+                //so that arr[0] to arr[i] is sorted
                 swap(array, i, indexOf(array, temp[i]));
             }
 
         }
     return numOfSwaps;
     }
+
 
     public void swap(int[] array, int i, int j){
         int temp = array[i];

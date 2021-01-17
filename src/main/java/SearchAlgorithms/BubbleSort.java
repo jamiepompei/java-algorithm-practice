@@ -11,29 +11,32 @@ public class BubbleSort {
      */
 
 
-    public int[] bubbleSortPractice(int[] arr) {
-            boolean isSorted = false;
-            int counter = 0;
+    public int[] bubbleSortPrac(int[] array){
+        boolean isSorted = false;
+        int counter = 0;
 
-            while(!isSorted){
-                isSorted = true;
+        if(array.length == 0){
+            return new int[]{};
+        }
 
-                for(int i = 0; i < arr.length - 1 - counter; i++){
-                    if(arr[i] > arr[i +1]){
-                        swapPractice(arr, i, i+1);
-                        isSorted = false;
-                    }
+        while(!isSorted){
+            isSorted = true;
+
+            for(int i = 0; i < array.length - 1 - counter; i++){
+                if (array[i] > array[i+1]){
+                    swapPrac(array, i, i +1);
+                    isSorted = false;
                 }
-                counter++;
-
             }
-            return arr;
+                counter++;
+        }
+        return array;
     }
 
-    public void swapPractice(int[] arr, int i, int j){
-          int temp = arr[i];
-          arr[i] = arr[j];
-          arr[j] = temp;
+    public void swapPrac(int[] array, int i, int j){
+        int temp = array[i];
+        array[i] = array[j];
+        array[j]  = temp;
     }
 
 

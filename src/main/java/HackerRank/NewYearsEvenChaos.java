@@ -32,36 +32,27 @@ import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 public class NewYearsEvenChaos {
 
     public void minimumBribes(int[] q){
-        int count = 0;
-        int check = 0;
-        int temp = 0;
-
-        boolean isSorted = false;
-
-        int[] bribe = new int[100000];
-
-        while(!isSorted){
-            isSorted = true;
-
-            for(int i = q.length -1; i > 0; i--){
-                if(q[i] < q[i-1]){
-                    temp = q[i-1];
-                    q[i-1] = q[i];
-                    q[i] = temp;
-                    bribe[q[i]]++;
-                    count++;
-
-                    if(bribe[q[i]] > 2){
-                        System.out.println("Too chaotic");
-                        check++;
-                        break;
-                    }
-                    isSorted = false;
-                }
-            }
-        }
-        if(check == 0){
-            System.out.println(count);
-        }
+       int swaps = 0;
+       //start from the back and check to see if each element is in it's right sorted placed
+       for(int i = q.length - 1; i >= 0; i--){
+           //if the value of the element does not match i+1, then it is unsorted
+           if(q[i] != i+1){
+               if((i-1) >= 0 && q[i-1] == i + 1){
+                   int temp = q[i-1];
+                   q[i-1]= q[i];
+                   q[i] = temp;
+                   swaps++;
+               } else if((i-2) >= 0 && q[i-2] == i+1){
+                   q[i-2] = q[i-1];
+                   q[i-1] = q[i];
+                   q[i] = q[i-1];
+                   swaps += 2;
+               } else{
+                   System.out.println("Too chaotic");
+                   return;
+               }
+           }
+       }
+       System.out.println(swaps);
     }
 }

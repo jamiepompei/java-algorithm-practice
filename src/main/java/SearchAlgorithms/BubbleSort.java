@@ -12,19 +12,19 @@ public class BubbleSort {
 
 
     public int[] bubbleSortPrac(int[] array){
-        int counter = 0;
-        boolean isSorted = false;
-
         if(array.length == 0){
-            return new int[]{};
+            return new int[]{0};
         }
+
+        boolean isSorted = false;
+        int counter =0;
 
         while(!isSorted){
             isSorted = true;
 
-            for(int i =0; i < array.length - 1 - counter; i++){
+            for(int i = 0; i < array.length - 1 - counter; i++){
                 if(array[i] > array[i+1]){
-                    swapPrac(array, i, i + 1);
+                    swapPrac(array, i, i+1);
                     isSorted = false;
                 }
             }
@@ -38,18 +38,6 @@ public class BubbleSort {
         array[i] = array[j];
         array[j] = temp;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     public int[] bubbleSort(int[] array){
         //if the array's length is 0, return a new empty array

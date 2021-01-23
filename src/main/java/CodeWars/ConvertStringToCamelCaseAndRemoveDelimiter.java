@@ -36,6 +36,7 @@ public class ConvertStringToCamelCaseAndRemoveDelimiter {
     }
 
     //alternate solution with char array
+    //less efficient than using string builder as there is a new copy of the string per each addition
     public String convertCamelCaseCharArray(String s){
         String result = "";
         char[] sAsCharArray = s.toCharArray();

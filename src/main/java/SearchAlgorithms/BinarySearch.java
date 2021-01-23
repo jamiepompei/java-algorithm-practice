@@ -30,10 +30,8 @@ public class BinarySearch {
             } else{
                 left = middle + 1;
             }
-            return -1;
         }
-
-
+        return -1;
     }
 
 

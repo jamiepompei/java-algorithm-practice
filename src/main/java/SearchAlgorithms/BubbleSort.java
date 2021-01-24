@@ -13,11 +13,11 @@ public class BubbleSort {
 
     public int[] bubbleSortPrac(int[] array){
         if(array.length == 0){
-            return new int[]{0};
+            return new int[]{};
         }
 
         boolean isSorted = false;
-        int counter =0;
+        int counter = 0;
 
         while(!isSorted){
             isSorted = true;
@@ -38,6 +38,10 @@ public class BubbleSort {
         array[i] = array[j];
         array[j] = temp;
     }
+
+
+
+
 
     public int[] bubbleSort(int[] array){
         //if the array's length is 0, return a new empty array

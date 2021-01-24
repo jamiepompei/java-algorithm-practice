@@ -44,24 +44,31 @@ public class DecodeWays {
         //dp array stores the maximum number of ways tod decode the string up to that index,
         //the index represents the number of characters we have
         int[] dp = new int[s.length() + 1];
-
+        //use all the sub problems to solve the larger problem we are asked
+        //only 1 way to decode a string with length 0
         dp[0] = 1;
+        //to decode a string of length 1, it depends on if it is 0
         dp[1] = s.charAt(1) == '0' ? 0 : 1;
-
+    //start at length 2, because we accounted for 0 & 1
         for (int i = 2; i < s.length() ; i++) {
-
+            //get the substring of the current character we are on, convert it to an integer and store it in oneDigit
             int oneDigit = Integer.valueOf(s.substring(i - 1, i));
+            //get the current digit and previous digit
             int twoDigits =  Integer.valueOf(s.substring(i - 2, i));
-
+            //figure out if these digits have mappings
             if(oneDigit >= 1){
+                //add to current sub problem all the possible ways to decode the previous digits. (add to current answer to previous)
                 dp[i] += dp[i - 1];
             }
             if(twoDigits >= 10 && twoDigits <= 26){
                 dp[i] += dp[i - 2];
             }
         }
+        //dp array stores max num of ways to decode the string up til that index, which represents the number of
+        //characters we have. num of ways to decode a string of s's length.
         return dp[s.length()];
     }
 
+    //alternate solution
 
 }

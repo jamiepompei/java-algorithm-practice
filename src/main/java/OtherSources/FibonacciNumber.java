@@ -36,6 +36,25 @@ public class FibonacciNumber {
      * to F0. getNthFib(2) is equal to F1, etc
      */
 
+    public static int getNthFibIter(int n){
+        //iterative approach that stores only the last two values
+        //intialize the array to hold the first 2 values of fib sequence
+        //then calculate fib numbers after
+        //counter keeps track of how many fib nums have been calculated at any given time
+        //only storing 2 values, calculate new fib and store it in an array (or variable)
+
+        int[] lastTwo = {0, 1};
+        int counter = 3;
+
+        while(counter <= n){
+            int nextFib = lastTwo[0] + lastTwo[1];
+            lastTwo[0] = lastTwo[1];
+            lastTwo[1] = nextFib;
+            counter++;
+        }
+        return n > 1 ? lastTwo[1] : lastTwo[0];
+    }
+
     public static int getNthFibRecurMemoization(int n){
 
         //memoization is caching

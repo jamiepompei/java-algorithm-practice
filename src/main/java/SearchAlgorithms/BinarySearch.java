@@ -34,6 +34,28 @@ public class BinarySearch {
         return -1;
     }
 
+    public int binarySearchRecurPrac(int[] array, int target){
+        return binarySearchRecurHelperPrac(array, target, 0, array.length -1);
+    }
+
+    public int binarySearchRecurHelperPrac(int[] array, int target, int left, int right){
+            if(left > right){
+                return -1;
+            }
+
+            int length = array.length - 1;
+            int middle = Math.round(length/2);
+            int potentialMatch = array[middle];
+
+            if(potentialMatch == target){
+                return middle;
+            } else if(potentialMatch > target){
+                return binarySearchRecurHelperPrac(array, target, left, middle - 1);
+            } else{
+                return binarySearchHelperRecursive(array, target, middle + 1, right);
+            }
+    }
+
 
     public int binarySearchRecursive(int[] array, int target){
         return binarySearchHelperRecursive(array,target, 0, array.length - 1);

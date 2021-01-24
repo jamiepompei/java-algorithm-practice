@@ -1,5 +1,8 @@
 package OtherSources;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FibonacciNumber {
     /**
      * The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
@@ -32,6 +35,28 @@ public class FibonacciNumber {
      * For the purposes of this question, the first Fibonacci number is F0, therefore getNthFib(1) is equal
      * to F0. getNthFib(2) is equal to F1, etc
      */
+
+    public static int getNthFibRecurMemoization(int n){
+
+        //memoization is caching
+        //store each solution in a hashtable to access them
+        Map<Integer, Integer> memoize = new HashMap<Integer, Integer>();
+        memoize.put(1, 0);
+        memoize.put(2, 1);
+        return getNthFibRecurMemoization(n, memoize);
+    }
+
+    public static int getNthFibRecurMemoization(int n, Map<Integer, Integer> memoize){
+        if(memoize.containsKey(n)){
+            return memoize.get(n);
+        } else{
+            memoize.put(n, getNthFibRecurMemoization(n-1, memoize) + getNthFibRecurMemoization(n-2, memoize));
+            return memoize.get(n);
+        }
+    }
+
+
+
     public static int getNthFibRecur(int n){
         //recursive approach
 

@@ -34,4 +34,32 @@ public class FindDuplicatesInString {
 
 
     }
+
+    public void printDuplicatesStringPrac(String str){
+
+        Map<Character, Integer> map = new HashMap();
+
+        char[] charArray = str.toCharArray();
+
+        if(str.length() == 0 || str.equals(null)){
+            System.out.println(0);
+        }
+
+        for(char letter : charArray){
+            if(!map.containsKey(letter)){
+                map.put(letter, 1);
+            } else{
+                int frequency = map.get(letter);
+                map.put(letter, +frequency);
+            }
+        }
+
+        for(Map.Entry<Character, Integer> entry : map.entrySet()){
+            if(entry.getValue() >= 2){
+                System.out.println(entry.getKey() + " : " + entry.getValue());
+            }
+        }
+
+
+    }
 }

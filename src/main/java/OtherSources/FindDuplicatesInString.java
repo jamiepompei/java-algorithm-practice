@@ -9,6 +9,10 @@ public class FindDuplicatesInString {
 
     public void printAllDupsInString(String str){
 
+        if(str.length() == 0 || str == null){
+            System.out.println(0);
+        }
+
         char[] charArray = str.toCharArray();
         Map<Character, Integer> map = new HashMap<Character, Integer>();
 

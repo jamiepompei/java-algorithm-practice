@@ -16,8 +16,8 @@ public class BubbleSort {
             return new int[]{};
         }
 
-        boolean isSorted = false;
         int counter = 0;
+        boolean isSorted = false;
 
         while(!isSorted){
             isSorted = true;

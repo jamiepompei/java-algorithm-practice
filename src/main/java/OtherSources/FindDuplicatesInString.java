@@ -14,7 +14,7 @@ public class FindDuplicatesInString {
         }
 
         char[] charArray = str.toCharArray();
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        Map<Character, Integer> map = new HashMap();
 
         for(Character ch : charArray){
             if(map.containsKey(ch)){

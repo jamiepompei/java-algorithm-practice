@@ -13,7 +13,7 @@ public class QuickSort {
 
     public void sort(int[] numbers){
         if(numbers.length == 0 || numbers == null){
-            return numbers;
+            return;
         }
 
         this.input = numbers;

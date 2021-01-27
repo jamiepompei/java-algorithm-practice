@@ -1,64 +1,56 @@
 package SearchAlgorithms;
 
 /**
- * Sort array in place via quicksort (iterative and Recursive)
+ * Sort array in place via quicksort (Recursive)
  *
  * QuickSort is a divide and conquer algortihm, which means the original list is divided into
  * multiple lists, each of them sorted individually, and then sorted output is merged to produce
  * the sorted list.
  */
 public class QuickSort {
-    private int[] input;
-    private int length;
 
-    public void sort(int[] numbers){
-        if(numbers.length == 0 || numbers == null){
+
+    public static void quickSort(int[] array, int left, int right) {
+        if (left >= right) {
             return;
         }
+        //pick the mid-point pivot
+        int pivot = array[left + (right - left) / 2];
+        //partition these elements around the pivot
+        int index = partition(array, left, right, pivot);
+        //sort each side of the partition
+        quickSort(array, left, index - 1);
+        quickSort(array, index, right);
 
-        this.input = numbers;
-        length = numbers.length;
-        quickSort(0, length - 1);
-    }
-    //in place quick sort algo recursively
-    private void quickSort(int low, int high) {
-        int i = low;
-        int j = high;
-        //pivot is the middle index
-        int pivot = input[low + (high - low)/ 2];
-
-        //divide into two arrays
-        while(i <= j){
-            /**
-             * In each iteration, we will identify a number from left side which is greater then the
-             * pivot value, and a number from right side which is less then the pivot value. Once
-             * search is complete, we can swap both numbers.
-             */
-            while(input[i] < pivot){
-                i++;
-            }
-            while(input[j] > pivot){
-                j--;
-            }
-            if(i <= j){
-                swap(i, j);
-                //move index to next position in both sides
-                i++;
-                j--;
-            }
-        }
-        //calls quiuck sort method recursively
-        if(low < j){
-            quickSort(low, j);
-        }
-        if(i < high){
-            quickSort(i, high);
-        }
     }
 
-    public void swap(int low, int high){
-        int temp = input[low];
-        input[low] = input[high];
-        input[high] = temp;
+    public static int partition(int[] array, int left, int right, int pivot) {
+        while (left <= right) {
+            //while these elements are in the right place, keep moving left. walk through until there
+            //is an element bigger than the pivot, as this should be on the right side
+            while (array[left] < pivot) {
+                left++;
+            }
+            //while these elements are in the right place, keep moving inwards. walk through until there
+            //is an element less than the pivot, as this should be on the left side
+            while (array[right] > pivot) {
+                right--;
+            }
+            //swap the values and move the indicies
+            if (left <= right) {
+                swap(array, left, right);
+                left++;
+                right--;
+            }
+        }
+        //left is the partition point so return this
+        return left;
+    }
+
+    public static void swap(int[] array, int left, int right){
+        int temp = array[left];
+        array[left] = array[right];
+        array[right] = temp;
     }
 }
+

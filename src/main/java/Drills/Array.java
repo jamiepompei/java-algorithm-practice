@@ -27,6 +27,26 @@ public class Array {
         return secondLargestNum;
     }
 
+    public int secondLargestNumPractice(int[] array){
+        int max = array[0];
+        int secondLargest = Integer.MIN_VALUE;
+
+        //if the array is empty, return -1
+        if(array.length == 0){
+            return -1;
+        }
+
+        for(int i = 1; i < array.length - 1; i++){
+            if(array[i] > max){
+                int temp =  array[i];
+                secondLargest = max;
+                max = temp;
+            }
+        }
+        return secondLargest;
+
+    }
+
     /**
      * ////////////////////////////////////////////////////  STRING ARRAY UTILS /////////////////////////////////////////
      */

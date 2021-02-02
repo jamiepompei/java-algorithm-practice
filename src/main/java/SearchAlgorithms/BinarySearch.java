@@ -13,49 +13,26 @@ public class BinarySearch {
      */
 
 
-    public int binarySearchRecurPrac(int[] array, int target){
-        return binarySearchHelperRecurPrac(array, target, 0, array.length -1);
-    }
+   public int binarySearchIterPrac(int[] array, int target){
+       int left = 0;
+       int right = array.length -1;
 
+       while(left <= right){
 
-    public int binarySearchHelperRecurPrac(int[] array, int target, int left, int right){
-        if(left > right){
-            return -1;
-        }
+           int middle = Math.round((left+right)/2);
+           int potentialMatch = array[middle];
 
-        int length = array.length - 1;
-        int middle = Math.round( length / 2);
-        int potentialMatch = array[middle];
+           if(potentialMatch == target){
+               return middle;
+           } else if(potentialMatch > target){
+               right = middle - 1;
+           } else{
+               left = middle + 1;
+           }
+       }
+       return -1;
 
-        if(potentialMatch == target){
-            return middle;
-        } else if( potentialMatch > target){
-            return binarySearchHelperRecurPrac(array, target, left, middle - 1);
-        } else{
-            return binarySearchHelperRecurPrac(array, target, middle + 1, right);
-        }
-
-    }
-
-    public int binarySearchRecurIterPrac(int[] array, int target){
-        int left = 0;
-        int right = array.length - 1;
-        int length = array.length - 1;
-        int middle = Math.round(length / 2);
-        int potentialMatch = array[middle];
-
-        while(left <= right){
-
-            if(potentialMatch == target){
-                return middle;
-            } else if( potentialMatch > target){
-                right = middle - 1;
-            } else{
-                left = middle + 1;
-            }
-        }
-        return -1;
-    }
+   }
 
 
     public int binarySearchRecursive(int[] array, int target){

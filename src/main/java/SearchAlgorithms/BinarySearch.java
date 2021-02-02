@@ -13,6 +13,29 @@ public class BinarySearch {
      */
 
 
+    public int binarySearchRecurPrac(int[] array, int target){
+
+        return binarySearchHelperPrac(array, target, 0 , array.length -1);
+    }
+
+    public int binarySearchHelperPrac(int[] array, int target, int left, int right){
+        if(left > right){
+            return -1;
+        }
+
+        int middle = Math.round((left+right)/2);
+        int potentialMatch = array[middle];
+
+        if(potentialMatch == target){
+            return middle;
+        } else if(potentialMatch > target){
+            return binarySearchHelperPrac(array, target, left, middle - 1);
+        } else{
+            return binarySearchHelperPrac(array, target, middle + 1, right);
+        }
+
+    }
+
    public int binarySearchIterPrac(int[] array, int target){
        int left = 0;
        int right = array.length -1;

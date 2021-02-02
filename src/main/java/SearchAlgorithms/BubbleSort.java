@@ -10,22 +10,22 @@ public class BubbleSort {
      * abstract the 'swap' action into a helper method for cleaner code.
      */
 
-
     public int[] bubbleSortPrac(int[] array){
+
         if(array.length == 0){
             return new int[]{};
         }
 
-        int counter = 0;
         boolean isSorted = false;
+        int counter = 0;
 
         while(!isSorted){
             isSorted = true;
 
             for(int i = 0; i < array.length - 1 - counter; i++){
-                if(array[i] > array[i+1]){
-                    swapPrac(array, i, i+1);
-                    isSorted = false;
+                if (array[i] > array[i+1]){
+                    swapPrac(array, i, i +1);
+                    isSorted =false;
                 }
             }
             counter++;
@@ -33,12 +33,11 @@ public class BubbleSort {
         return array;
     }
 
-    public void swapPrac(int[] array, int i, int j){
+     public void swapPrac(int[] array, int i, int j){
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
-
 
 
 

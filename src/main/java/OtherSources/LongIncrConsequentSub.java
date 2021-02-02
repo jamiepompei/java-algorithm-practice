@@ -2,6 +2,7 @@ package OtherSources;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 public class LongIncrConsequentSub {
 
@@ -49,4 +50,30 @@ public class LongIncrConsequentSub {
         return Collections.max(map.values());
 
     }
+
+    public int longestIncrSubsequencePrac(int[] array){
+        //create a map with Integer key Integer Value
+        //each Integer key represents the start of the subsequence
+        //put the element at the first index in the array in the map
+        //check if the map contains i-1, if so this current i is not the start of the subsequence, increment the value of i-1
+        //if map does not contain i-1, then current i marks the start of the new subsequence
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        map.put(array[0], 1);
+
+        for(int i = 1; i< array.length; i++){
+            if(map.containsKey(array[i-1])){
+                int frequency = map.get(array[i-1]);
+                map.put(array[i], frequency++);
+                map.remove(array[i-1]);
+            } else{
+                map.put(array[i], 1);
+            }
+        }
+        return Collections.max(map.values());
+
+    }
+
+
 }

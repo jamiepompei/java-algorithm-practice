@@ -5,6 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * create a program to print the duplicates in a string
+ */
+
 public class FindDuplicatesInString {
 
     public void printAllDupsInString(String str){
@@ -57,6 +61,33 @@ public class FindDuplicatesInString {
         for(Map.Entry<Character, Integer> entry : map.entrySet()){
             if(entry.getValue() >= 2){
                 System.out.println(entry.getKey() + " : " + entry.getValue());
+            }
+        }
+
+
+    }
+
+    public void duplicateStringPrac(String str){
+        Map<Character, Integer> map = new HashMap<>();
+        //check to ensure the length of the string is greater than 0 or that it does not equal null
+        if(str.length() == 0 || str.equals(null)){
+            System.out.println(0);
+        }
+
+        //add all of the characters from the string to the map
+        char[] charArray = str.toCharArray();
+        for(Character ch : charArray){
+            if(map.containsKey(ch)){
+                int frequency = map.get(ch);
+                map.put(ch, ++frequency);
+            } else{
+                map.put(ch, 1);
+            }
+        }
+
+        for(Map.Entry<Character, Integer> entrySet : map.entrySet()){
+            if(entrySet.getValue() > 1){
+                System.out.println("Character: " + entrySet.getKey() + " occurs " + entrySet.getValue() + " times.");
             }
         }
 
